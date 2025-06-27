@@ -1,4 +1,4 @@
-# 🎮 Citrubrain
+# 🎮 Citrubrain (https://citrubrain.vercel.app/)
 
 Citrubrain is a playful educational platform where elementary and high school students can learn game mechanics by interacting with fun, logic-based mini-games. This project is built with **Next.js**, using modern front-end best practices including **CSS Modules**, **modular components**, and responsive design.
 
@@ -38,6 +38,13 @@ Citrubrain is a playful educational platform where elementary and high school st
 - Created `Layout.js` to wrap all pages with consistent structure
   - Includes shared **Navbar** and **Footer**
   - Connected via `_app.js` to maintain a clean architecture
+
+### 🔍 Search Bar Functionality
+- Input field tied to state using `useState`
+- Search icon replaced with a clean **inline SVG** for scalability and styling
+- Form is ready to support future features:
+  - Search routing (e.g., `/search?q=...`)
+  - Live filtering or autocomplete
 
 ---
 
