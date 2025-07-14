@@ -25,9 +25,21 @@ export default function Home() {
             name="Mastermind Game"
             href="https://victorkwong.github.io/MasterMind/"
           />
-          
         </div>
       </section>
+      <section className={styles.gamesSection}>
+        <div className={styles.gameList}>
+          <GameCard
+            imageSrc="/gameImage/mathQuiz.png"
+            alt="Math Quiz"
+            name="Math Quiz"
+            href="https://victorkwong.github.io/mathQuiz/"
+          />
+        </div>
+      </section>
+
+
+      
     </main>
     </>
   );
