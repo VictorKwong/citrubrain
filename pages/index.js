@@ -1,8 +1,16 @@
 import Head from 'next/head';
 import styles from './Home.module.css';
-import GameCard from "/components/GameCard";
+import GameCard from '../components/GameCard';
+import { useSearch } from '../context/SearchContext';
+import { allGames } from '../data/games';
 
 export default function Home() {
+  const { searchQuery } = useSearch();
+
+  const filteredGames = allGames.filter(game =>
+    game.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+  
   return (
     <>
       <Head>
@@ -16,31 +24,17 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
 
-    <main className={styles.container}>
-      <section className={styles.gamesSection}>
-        <div className={styles.gameList}>
-          <GameCard
-            imageSrc="/gameImage/miniMaterMind.png"
-            alt="Mastermind Game"
-            name="Mastermind Game"
-            href="https://victorkwong.github.io/MasterMind/"
-          />
-        </div>
-      </section>
-      <section className={styles.gamesSection}>
-        <div className={styles.gameList}>
-          <GameCard
-            imageSrc="/gameImage/mathQuiz.png"
-            alt="Math Quiz"
-            name="Math Quiz"
-            href="https://victorkwong.github.io/mathQuiz/"
-          />
-        </div>
-      </section>
-
-
-      
-    </main>
+      <main className={styles.container}>
+        <section className={styles.gamesSection}>
+          <div className={styles.gameList}>
+            {filteredGames.length > 0 ? (
+              filteredGames.map(game => <GameCard key={game.name} {...game} />)
+            ) : (
+              <p>No games found for "{searchQuery}"</p>
+            )}
+          </div>
+        </section>
+      </main>
     </>
   );
 }

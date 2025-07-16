@@ -1,14 +1,13 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import styles from './Navbar.module.css';
+import { useSearch } from '../context/SearchContext';
 
 export default function Navbar() {
-  const [searchQuery, setSearchQuery] = useState('');
+  const { searchQuery, setSearchQuery } = useSearch();
 
   const handleSearch = (e) => {
     e.preventDefault();
-    // TODO: Navigate to /search?q=searchQuery or filter games
-    console.log('Search for:', searchQuery);
   };
 
   return (

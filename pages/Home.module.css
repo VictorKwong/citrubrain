@@ -24,10 +24,10 @@
 }
 
 .gameList {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-items: center;
 }
 
 .gameCard {
